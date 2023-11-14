@@ -34,8 +34,7 @@ export default function PreviewBox({ folder }: PreviewBoxProps) {
       const doc = new DOMParser().parseFromString(response.data, "text/html");
       const title = doc.querySelector("title")?.textContent || "";
       const description = doc.querySelector("meta[name='description']")?.getAttribute("content") || "";
-      const imageName = doc.querySelector("meta[property='og:image']")?.getAttribute("content") || "";
-      const image = `./${folder}/${imageName}`;
+      const image = doc.querySelector("meta[property='og:image']")?.getAttribute("content") || "";
       setPreviewData({ title, description, image });
       setLoaded(true);
     });
