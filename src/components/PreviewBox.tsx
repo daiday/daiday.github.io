@@ -40,7 +40,7 @@ export default function PreviewBox({ folder }: PreviewBoxProps) {
       setLoaded(true);
     });
     return undefined;
-  }, [folder]);
+  }, [folder, url]);
 
   return (
     <LinkBox>
