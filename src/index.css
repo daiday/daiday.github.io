@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -17,7 +21,30 @@
 body {
     margin: 0;
     display: flex;
-    place-items: center;
-    min-width: 320px;
     min-height: 100vh;
 }
+
+@media (min-width: 160px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+@media (min-width: 320px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 380px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 640px) {
+    html {
+        font-size: 16px;
+    }
+}
+

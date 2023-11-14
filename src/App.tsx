@@ -23,8 +23,9 @@ function App() {
 
   return (
     <>
+
       <Box h={8} m={8}>
-        <Heading>A Very Simple Page</Heading>
+        <Heading>A Simple Page</Heading>
       </Box>
 
       <Wrap justify={"center"} spacing={8}>

@@ -47,7 +47,7 @@ export default function PreviewBox({ folder }: PreviewBoxProps) {
       <Card w={"xs"}>
         <CardBody>
           <Skeleton isLoaded={loaded}>
-            <Image src={previewData?.image}></Image>
+            <Image rounded={"xl"} src={previewData?.image}></Image>
           </Skeleton>
           <LinkOverlay href={url}>
             <Skeleton isLoaded={loaded}>
