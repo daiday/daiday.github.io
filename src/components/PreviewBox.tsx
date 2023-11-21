@@ -1,4 +1,5 @@
 import {
+  AspectRatio,
   Card,
   CardBody,
   Heading,
@@ -10,7 +11,7 @@ import {
   Text
 } from "@chakra-ui/react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 
 interface PreviewBoxProps {
@@ -23,7 +24,7 @@ interface PreviewData {
   image: string;
 }
 
-export default function PreviewBox({ folder }: PreviewBoxProps) {
+export default function PreviewBox({folder}: PreviewBoxProps) {
   const [previewData, setPreviewData] = useState<PreviewData | null>(null);
   const [loaded, setLoaded] = useState(false);
   const url = `./${folder}/index.html`;
@@ -35,7 +36,7 @@ export default function PreviewBox({ folder }: PreviewBoxProps) {
       const title = doc.querySelector("title")?.textContent || "";
       const description = doc.querySelector("meta[name='description']")?.getAttribute("content") || "";
       const image = doc.querySelector("meta[property='og:image']")?.getAttribute("content") || "";
-      setPreviewData({ title, description, image });
+      setPreviewData({title, description, image});
       setLoaded(true);
     });
     return undefined;
@@ -46,7 +47,9 @@ export default function PreviewBox({ folder }: PreviewBoxProps) {
       <Card w={"xs"}>
         <CardBody>
           <Skeleton isLoaded={loaded}>
-            <Image rounded={"xl"} src={previewData?.image}></Image>
+            <AspectRatio maxW={"xs"} ratio={4 / 3}>
+              <Image rounded={"xl"} src={previewData?.image}></Image>
+            </AspectRatio>
           </Skeleton>
           <LinkOverlay href={url}>
             <Skeleton isLoaded={loaded}>
