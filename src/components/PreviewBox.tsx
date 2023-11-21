@@ -48,7 +48,7 @@ export default function PreviewBox({folder}: PreviewBoxProps) {
         <CardBody>
           <Skeleton isLoaded={loaded}>
             <AspectRatio maxW={"xs"} ratio={4 / 3}>
-              <Image rounded={"xl"} src={previewData?.image}></Image>
+              <Image rounded={"xl"} src={previewData?.image} objectFit={"cover"}></Image>
             </AspectRatio>
           </Skeleton>
           <LinkOverlay href={url}>

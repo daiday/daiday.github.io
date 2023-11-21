@@ -1,8 +1,6 @@
-import "./App.css";
 import {
   Box,
-  Heading, IconButton, useColorMode,
-  Wrap,
+  Heading, IconButton, useColorMode, Wrap,
 } from "@chakra-ui/react";
 import {MoonIcon, SunIcon} from "@chakra-ui/icons";
 
@@ -15,7 +13,7 @@ function App() {
   const [dirs, setDirs] = useState<Array<string>>([]);
 
   useEffect(() => {
-    axios.get("/list.json").then(response => {
+    axios.get("./list.json").then(response => {
       setDirs(response.data);
     });
     return undefined;
@@ -24,7 +22,7 @@ function App() {
   return (
     <>
 
-      <Box h={8} m={8}>
+      <Box my={2}>
         <Heading>A Simple Page</Heading>
       </Box>
 
@@ -32,12 +30,18 @@ function App() {
         {dirs.map((value, index) => (
           <PreviewBox key={index} folder={value}/>
         ))}
-
-        {dirs.length > 2 && <Box opacity={0} w={"xs"} h={0} cursor={"default"} m={0} p={0}></Box>}
-        {dirs.length > 3 && <Box opacity={0} w={"xs"} h={0} cursor={"default"} m={0} p={0}></Box>}
-        {dirs.length > 4 && <Box opacity={0} w={"xs"} h={0} cursor={"default"} m={0} p={0}></Box>}
-
       </Wrap>
+
+      {/*<Box margin={"auto"} display={"grid"} gap={8} justifyItems={"center"}*/}
+      {/*     gridTemplateColumns={`repeat(auto-fill, minmax(320px, 1fr))`}>*/}
+      {/*  {dirs.map((value, index) => (*/}
+      {/*    <PreviewBox key={index} folder={value}/>*/}
+      {/*  ))}*/}
+      {/*</Box>*/}
+
+      {/*{dirs.length > 2 && <Box opacity={0} w={"xs"} h={0} cursor={"default"} m={0} p={0}></Box>}*/}
+      {/*{dirs.length > 3 && <Box opacity={0} w={"xs"} h={0} cursor={"default"} m={0} p={0}></Box>}*/}
+      {/*{dirs.length > 4 && <Box opacity={0} w={"xs"} h={0} cursor={"default"} m={0} p={0}></Box>}*/}
 
       <Box position={"fixed"} right={2} top={2}>
         <IconButton onClick={toggleColorMode}
